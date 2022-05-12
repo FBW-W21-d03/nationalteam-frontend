@@ -1,0 +1,15 @@
+body {
+  padding: 20px;
+}
+
+table {
+  border-collapse: collapse;
+}
+th {
+  text-align: left;
+}
+th,
+td {
+  padding: 12px;
+  border: 1px solid black;
+}
