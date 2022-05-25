@@ -24,22 +24,26 @@ export default function PlayerList() {
     <div>
       <h1>Die deutsche Nationalmannschaft der Frauen</h1>
       <table>
-        <tr>
-          <th>Name</th>
-          <th>Position</th>
-          <th>Verein</th>
-          <th>Geburtsjahr</th>
-        </tr>
-        {players.map((player) => {
-          return (
-            <tr>
-              <td>{`${player.firstName} ${player.lastName}`}</td>
-              <td>{player.position}</td>
-              <td>{player.club}</td>
-              <td>{player.yearOfBirth}</td>
-            </tr>
-          );
-        })}
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Position</th>
+            <th>Verein</th>
+            <th>Geburtsjahr</th>
+          </tr>
+        </thead>
+        <tbody>
+          {players.map((player) => {
+            return (
+              <tr key={player._id}>
+                <td>{`${player.firstName} ${player.lastName}`}</td>
+                <td>{player.position}</td>
+                <td>{player.club}</td>
+                <td>{player.yearOfBirth}</td>
+              </tr>
+            );
+          })}
+        </tbody>
       </table>
     </div>
   );
