@@ -5,13 +5,33 @@ import { LoginForm } from "./components/LoginForm";
 import { useUser } from "./context/UserContext";
 
 function App() {
-  const { token } = useUser();
-  console.log(token);
+  const { user, signOut } = useUser();
+
+  let expirationString = "";
+  if (user) {
+    const expDate = new Date(user.exp * 1000);
+    expirationString =
+      expDate.toLocaleDateString("de") + " " + expDate.toLocaleTimeString("de");
+  }
   return (
     <div className="App">
       <h1>Homepage Nationalteam Projekt</h1>
-      {token ? (
-        <Link to="/nationalteam">Hier geht's zum Nationalteam</Link>
+      {user ? (
+        <>
+          <p>Hallo {user.email}</p>
+          <p>Dein Token ist gültig bis {expirationString}</p>
+          <div>
+            <button
+              onClick={() => {
+                signOut();
+              }}
+            >
+              Ausloggen
+            </button>
+          </div>
+
+          <Link to="/nationalteam">Hier geht's zum Nationalteam</Link>
+        </>
       ) : (
         <LoginForm />
       )}
