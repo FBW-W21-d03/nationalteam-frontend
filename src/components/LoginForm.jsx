@@ -1,6 +1,8 @@
 import { useState } from "react";
+import { useUser } from "../context/UserContext";
 
 export const LoginForm = () => {
+  const { signIn } = useUser();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   return (
@@ -23,7 +25,8 @@ export const LoginForm = () => {
         />
         <button
           onClick={() => {
-            console.log(email, password);
+            // console.log(email, password);
+            signIn(email, password);
           }}
         >
           Login
