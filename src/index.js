@@ -7,6 +7,7 @@ import { UserContextProvider } from "./context/UserContext";
 // importieren
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import PlayerList from "./components/PlayerList";
+import Profile from "./components/Profile";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -18,6 +19,7 @@ root.render(
         <Routes>
           <Route path="/" element={<App />} />
           <Route path="/nationalteam" element={<PlayerList />} />
+          <Route path="/profile" element={<Profile />} />
         </Routes>
       </BrowserRouter>
     </UserContextProvider>
