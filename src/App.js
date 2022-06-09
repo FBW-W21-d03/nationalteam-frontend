@@ -31,6 +31,8 @@ function App() {
           </div>
 
           <Link to="/nationalteam">Hier geht's zum Nationalteam</Link>
+          <br />
+          <Link to="/profile">Dein Profil</Link>
         </>
       ) : (
         <LoginForm />
